@@ -1,5 +1,8 @@
 install:
-	cd notebooks && uv sync
+	uv sync
 
 run:
-	cd notebooks && .venv/bin/jupyter-lab
+	./.venv/bin/jupyter-lab
+
+activate:
+	source .venv/bin/activate
