@@ -31,8 +31,10 @@ class LogisticRegression:
             y_proba = np.append(y_proba, proba)
         return y_proba
 
-    def prediction(self, y_proba):
+    def prediction(self, x_test):
         y_pred = np.array([], dtype=np.int16)
+
+        y_proba = self.probability(self.w, x_test)
 
         for i in range(len(y_proba)):
             if y_proba[i] > 0.5:
@@ -40,6 +42,7 @@ class LogisticRegression:
             else:
                 pred = 0
             y_pred =np.append(y_pred, pred)
+
         return y_pred
 
     def fit(self, X, y, epochs=10, learning_rate=0.01):
