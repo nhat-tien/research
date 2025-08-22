@@ -47,9 +47,7 @@ class LogisticRegression:
 
     def fit(self, X, y, epochs=10, learning_rate=0.01):
         N = X.shape[0] # number of training samples
-        print(N)
         self.w = np.ones((1, X.shape[1])) # initialize the weights
-        # old_cost = 100
         for _ in range(epochs):
             y_proba = self.probability(self.w, X)
             self.w = self.w - learning_rate* self.gradient_compute(X, y, y_proba) # update the weights after one epoch
